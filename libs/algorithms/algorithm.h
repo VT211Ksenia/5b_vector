@@ -1,0 +1,8 @@
+//
+// Created by User on 04.02.2022.
+//
+
+#ifndef UNTITLED10_ALGORITHM_H
+#define UNTITLED10_ALGORITHM_H
+
+#endif //UNTITLED10_ALGORITHM_H
