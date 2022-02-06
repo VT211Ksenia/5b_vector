@@ -132,6 +132,8 @@ untitled10.exe: CMakeFiles/untitled10.dir/libs/algorithms/array/array.c.obj
 untitled10.exe: CMakeFiles/untitled10.dir/libs/algorithms/algorithm.c.obj
 untitled10.exe: CMakeFiles/untitled10.dir/libs/data_structures/vector/vector.c.obj
 untitled10.exe: CMakeFiles/untitled10.dir/build.make
+untitled10.exe: libs/data_structures/libdata_structures.a
+untitled10.exe: libs/algorithms/libalgorithms.a
 untitled10.exe: CMakeFiles/untitled10.dir/linklibs.rsp
 untitled10.exe: CMakeFiles/untitled10.dir/objects1.rsp
 untitled10.exe: CMakeFiles/untitled10.dir/link.txt

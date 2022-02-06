@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/User/CLionProjects/untitled10/libs/algorithms/algorithm.c
+
+C:/Users/User/CLionProjects/untitled10/libs/algorithms/array/array.c
+stdio.h
+-
+limits.h
+-
+assert.h
+-
+array.h
+C:/Users/User/CLionProjects/untitled10/libs/algorithms/array/array.h
+
+C:/Users/User/CLionProjects/untitled10/libs/algorithms/array/array.h
+stddef.h
+-
+

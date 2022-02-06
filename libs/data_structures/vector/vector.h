@@ -27,7 +27,22 @@ void clear(vector *v);
 void shrinkToFit(vector *v);
 
 //освобождает память, выделенную вектору
-void deleteVector(vector *v)
+void deleteVector(vector *v);
+
+// Возвращает True, если вектор v пустой, иначе - False
+bool isEmpty (vector *v);
+
+// Возвращает True, если вектор v полный, иначе - False
+bool isFull (vector *v);
+
+// Возвращает значение элемента по индексу i в векторе v
+int getVectorValue(vector *v, size_t i);
+
+// Добавляет в вектор v элемент x
+void pushBack(vector *v, int x);
+
+// Добавляет в вектор v элемент x
+void popBack (vector *v);
 
 
 #endif
