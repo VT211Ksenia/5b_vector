@@ -44,11 +44,13 @@ void pushBack(vector *v, int x);
 // Добавляет в вектор v элемент x
 void popBack (vector *v);
 
-// Возвращает
+// Возвращает указатель элемента по индексу index в векторе v
 int* atVector(vector *v, size_t index);
 
+// Возвращает указатель последнего элемента в векторе v
 int* back(vector *v);
 
+// Возвращает указатель первого элемента в векторе v
 int* front(vector *v);
 
 #endif
