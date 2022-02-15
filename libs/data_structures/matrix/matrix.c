@@ -128,7 +128,7 @@ bool twoMatricesEqual(matrix m1, matrix m2){
     if(m1.nRows != m2.nRows || m1.nCols != m2.nCols)
         return false;
     for( int i = 0; i < m1.nRows; i++)
-        for( int j = 0; i < m1.nCols; i++)
+        for( int j = 0; j < m1.nCols; j++)
             if(m1.values[i][j] != m2.values[i][j])
                 return false;
 
@@ -294,5 +294,9 @@ void transposeIfMatrixHasEqualSumOfRows(matrix m){
 
     if(isUnique(a, m.nRows ))
         transposeSquareMatrix(m);
+
+}
+// шестая задача
+bool isMutuallyInverseMatrices(matrix m1, matrix m2){
 
 }
