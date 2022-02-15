@@ -84,6 +84,44 @@ void swapColumns(matrix m, int j1, int j2) {
     for (int i = 0; i < m.nRows; i++)
         swap((int *) &m.values[j1], (int *) &m.values[j2]);
 }
+void insertionSortRowsMatrixByRowCriteria(matrix m, int (*criteria)(int *, int)) {
+    int criteriaArray[m.nRows];
+    for (size_t i = 0; i < m.nRows; ++i)
+        criteriaArray[i] = criteria(m.values[i], m.nCols);
+
+    for (size_t i = 1; i < m.nRows; ++i) {
+        size_t j = i;
+        while (j > 0 && criteriaArray[j - 1] > criteriaArray[i]) {
+            criteriaArray[j] = criteriaArray[j - 1];
+            j--;
+        }
+
+        swap((int *)&criteriaArray[j], (int *)&criteriaArray[i]);
+        swapRows(m, j, i);
+    }
+}
+
+void insertionSortColsMatrixByColCriteria(matrix m, int (*criteria)(int *, int)) {
+    int criteriaArray[m.nCols];
+    for (size_t i = 0; i < m.nCols; ++i) {
+        int arrayForRow[m.nRows];
+        for (size_t j = 0; j < m.nRows; ++j)
+            arrayForRow[i] = m.values[i][j];
+
+        criteriaArray[i] = criteria(arrayForRow, m.nCols);
+    }
+
+    for (size_t i = 1; i < m.nCols; ++i) {
+        size_t j = i;
+        while (j > 0 && criteriaArray[j - 1] > criteriaArray[i]) {
+            criteriaArray[j] = criteriaArray[j - 1];
+            j--;
+        }
+
+        swap((int *)&criteriaArray[j], (int *)&criteriaArray[i]);
+        swapRows(m, j, i);
+    }
+}
 
 bool isSquareMatrix(matrix m) {
     if (m.nRows == m.nCols)
@@ -161,5 +199,30 @@ position getMaxValuePos(matrix m){
 }
 matrix createMatrixFromArray(const int *a, size_t nRows,
                              size_t nCols){
-    matrix =
+    matrix m = getMemMatrix(nRows, nCols);
+
+    int k = 0;
+    for(int i = 0; i < nRows; i++)
+        for( int j = 0; j < nCols; j++)
+            m.values[i][j] = a[k++];
+
+    return m;
 }
+matrix *createArrayOfMatrixFromArray(const int *values,
+                                     size_t nMatrices, size_t nRows, size_t nCols){
+    matrix *ms = getMemArrayOfMatrices(nMatrices, nRows, nCols);
+    int  l = 0;
+    for(int k = 0; k < nMatrices; k++)
+        for(int i = 0; i < nRows; i++)
+            for(int j = 0; j < nCols; j++)
+                ms[k].values[i][j] = values[l++];
+    return ms;
+}
+// первая задача
+void swapRowsWithMaxAndMinValue(matrix m) {
+    position minIndex = getMinValuePos(m);
+    position maxIndex = getMaxValuePos(m);
+    if (minIndex.rowIndex != maxIndex.rowIndex)
+        swapRows(m, minIndex.rowIndex, maxIndex.rowIndex);
+}
+
