@@ -71,7 +71,7 @@ void outputMatrices(matrix *ms, int nMatrices) {
 
 
 void swapRows(matrix m, int i1, int i2) {
-    swap((int*)&m.values[i1], (int*)&m.values[i2]);
+    swap((int *) &m.values[i1], (int *) &m.values[i2]);
 }
 
 void swapColumns(matrix m, int j1, int j2) {
@@ -124,52 +124,54 @@ bool isSquareMatrix(matrix m) {
         return false;
 }
 
-bool twoMatricesEqual(matrix m1, matrix m2){
-    if(m1.nRows != m2.nRows || m1.nCols != m2.nCols)
+bool twoMatricesEqual(matrix m1, matrix m2) {
+    if (m1.nRows != m2.nRows || m1.nCols != m2.nCols)
         return false;
-    for( int i = 0; i < m1.nRows; i++)
-        for( int j = 0; j < m1.nCols; j++)
-            if(m1.values[i][j] != m2.values[i][j])
+    for (int i = 0; i < m1.nRows; i++)
+        for (int j = 0; j < m1.nCols; j++)
+            if (m1.values[i][j] != m2.values[i][j])
                 return false;
 
     return true;
 }
 
-bool isEMatrix(matrix m){
-    if(!isSquareMatrix(m))
+bool isEMatrix(matrix m) {
+    if (!isSquareMatrix(m))
         return false;
-    for(int i = 0; i < m.nRows; i++)
-        for(int j = 0; j < m.nCols; i++)
-            if ((i != j && m.values[i][j]!= 0) || (i == j && m.values[i][j] != 1))
+    for (int i = 0; i < m.nRows; i++)
+        for (int j = 0; j < m.nCols; i++)
+            if ((i != j && m.values[i][j] != 0) || (i == j && m.values[i][j] != 1))
                 return false;
     return true;
 }
 
 bool isSymmetricMatrix(matrix m) {
-    if(!isSquareMatrix(m))
+    if (!isSquareMatrix(m))
         return false;
-    for(int i = 0; i < m.nRows; i++)
-        for(int j = 0; j < m.nCols; i++)
-            if(m.values[i][j] != m.values[j][i])
+    for (int i = 0; i < m.nRows; i++)
+        for (int j = 0; j < m.nCols; i++)
+            if (m.values[i][j] != m.values[j][i])
                 return false;
     return true;
 
 }
-void transposeSquareMatrix(matrix m){
-    if(isSquareMatrix(m)) {
+
+void transposeSquareMatrix(matrix m) {
+    if (isSquareMatrix(m)) {
         for (int i = 0; i < m.nRows; i++)
             for (int j = 0; j < m.nCols; i++)
                 if (i == j)
                     swap((int *) &m.values[i][j], (int *) &m.values[j][i]);
     }
 }
-position getMinValuePos(matrix m){
+
+position getMinValuePos(matrix m) {
     int minValue = m.values[0][0];
     position minPos = {0, 0};
 
     for (int i = 0; i < m.nRows; i++)
         for (int j = 1; j < m.nCols; i++)
-            if(m.values[i][j] < minValue) {
+            if (m.values[i][j] < minValue) {
                 minValue = m.values[i][j];
                 minPos.colIndex = j;
                 minPos.rowIndex = i;
@@ -178,40 +180,43 @@ position getMinValuePos(matrix m){
 
 }
 
-position getMaxValuePos(matrix m){
+position getMaxValuePos(matrix m) {
     int maxValue = m.values[0][0];
     position maxPos = {0, 0};
 
     for (int i = 0; i < m.nRows; i++)
         for (int j = 1; j < m.nCols; i++)
-            if(m.values[i][j] > maxValue) {
+            if (m.values[i][j] > maxValue) {
                 maxValue = m.values[i][j];
                 maxPos.colIndex = j;
                 maxPos.rowIndex = i;
             }
     return maxPos;
 }
+
 matrix createMatrixFromArray(const int *a, size_t nRows,
-                             size_t nCols){
+                             size_t nCols) {
     matrix m = getMemMatrix(nRows, nCols);
 
     int k = 0;
-    for(int i = 0; i < nRows; i++)
-        for( int j = 0; j < nCols; j++)
+    for (int i = 0; i < nRows; i++)
+        for (int j = 0; j < nCols; j++)
             m.values[i][j] = a[k++];
 
     return m;
 }
+
 matrix *createArrayOfMatrixFromArray(const int *values,
-                                     size_t nMatrices, size_t nRows, size_t nCols){
+                                     size_t nMatrices, size_t nRows, size_t nCols) {
     matrix *ms = getMemArrayOfMatrices(nMatrices, nRows, nCols);
-    int  l = 0;
-    for(int k = 0; k < nMatrices; k++)
-        for(int i = 0; i < nRows; i++)
-            for(int j = 0; j < nCols; j++)
+    int l = 0;
+    for (int k = 0; k < nMatrices; k++)
+        for (int i = 0; i < nRows; i++)
+            for (int j = 0; j < nCols; j++)
                 ms[k].values[i][j] = values[l++];
     return ms;
 }
+
 // первая задача
 void swapRowsWithMaxAndMinValue(matrix m) {
     position minIndex = getMinValuePos(m);
@@ -221,30 +226,31 @@ void swapRowsWithMaxAndMinValue(matrix m) {
 }
 
 // вторая задача
-int getMax(const int *a, int n){
+int getMax(const int *a, int n) {
     int maxValue = a[0];
-    for(int i = 1; i < n; i++)
-        if( a[i] > maxValue)
+    for (int i = 1; i < n; i++)
+        if (a[i] > maxValue)
             maxValue = a[i];
     return maxValue;
 }
 
-void secondTask(matrix m){
+void secondTask(matrix m) {
     insertionSortRowsMatrixByRowCriteria(m, getMax);
 }
 //третья задача
 
-int getMin(const int *a, int n){
+int getMin(const int *a, int n) {
     int minValue = a[0];
-    for(int i = 1; i < n; i++)
-        if( a[i] < minValue)
+    for (int i = 1; i < n; i++)
+        if (a[i] < minValue)
             minValue = a[i];
     return minValue;
 }
 
-void thirdTask(matrix m){
+void thirdTask(matrix m) {
     insertionSortColsMatrixByColCriteria(m, getMin);
 }
+
 // четвертая задача
 matrix mulMatrices(matrix m1, matrix m2) {
     if (m1.nCols != m2.nRows) {
@@ -265,41 +271,88 @@ matrix mulMatrices(matrix m1, matrix m2) {
 
     return (matrix) multiplicationMatrix;
 }
-void getSquareOfMatrixIfSymmetric(matrix *m){
-    if(isSquareMatrix(*m))
+
+void getSquareOfMatrixIfSymmetric(matrix *m) {
+    if (isSquareMatrix(*m))
         *m = mulMatrices(*m, *m);
 }
 // пятая задача
-bool isUnique(long long *a, int n){
-    for(int i = 0; i < n; i++)
+bool isUnique(long long *a, int n) {
+    for (int i = 0; i < n; i++)
         for (int j = 1; j < n - 1; j++) {
-            if(a[i] == a[j])
+            if (a[i] == a[j])
                 return false;
 
 
         }
     return true;
 }
-long long getSum(int *a, int n){
+
+long long getSum(int *a, int n) {
     long long sum = 0;
-    for(int i = 0; i < n; i++)
+    for (int i = 0; i < n; i++)
         sum += a[i];
     return sum;
 }
 
-void transposeIfMatrixHasEqualSumOfRows(matrix m){
+void transposeIfMatrixHasEqualSumOfRows(matrix m) {
     int a[m.nRows];
-    for(int i = 0; i< m.nRows; i++)
+    for (int i = 0; i < m.nRows; i++)
         a[i] = getSum(m.values[i], m.nCols);
 
-    if(isUnique(a, m.nRows ))
+    if (isUnique(a, m.nRows))
         transposeSquareMatrix(m);
 
 }
 // шестая задача
-bool isMutuallyInverseMatrices(matrix m1, matrix m2){
+bool isMutuallyInverseMatrices(matrix m1, matrix m2) {
     matrix m3 = mulMatrices(m1, m2);
-    if(!isEMatrix(m3))
+    if (!isEMatrix(m3))
         return false;
     return true;
 }
+
+// седьмая задача
+int max(int a, int b) {
+    return a > b ? a : b;
+}
+
+int getMaxElementDiagonal(matrix m, int iRow, int iCol) {
+    int maxValue = m.values[iRow][iCol];
+    while (iRow < m.nRows && iCol < m.nCols)
+        maxValue = max(maxValue, m.values[iRow++][iCol++]);
+    return maxValue;
+}
+
+
+long long findSumOfMaxesOfPseudoDiagonal(matrix m) {
+    int sum = 0;
+    for (int i = 1; i < m.nRows; i++)
+        sum += getMaxElementDiagonal(m, i, 0);
+
+    for (int j = 1; j < m.nCols; j++) {
+        sum += getMaxElementDiagonal(m, 0, j);
+    }
+    return sum;
+}
+
+
+
+
+
+//    int a[(m.nRows + m.nCols)];
+//    int counter = -1;
+//
+//    for(int l = 1; l < m.nRows; l++) {
+//        int i = l;
+//        int j = l;
+//        int maxValue = m.values[i][j];
+//        while (i < m.nRows && j < m.nCols)
+//            maxValue = max(m.values[i++][j++], maxValue);
+//
+//        a[counter++] = maxValue;
+//    }
+//    for(int k = 1; k < m.nCols; k++)
+//        int i = k;
+
+
