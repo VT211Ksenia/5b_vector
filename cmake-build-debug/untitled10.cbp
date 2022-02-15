@@ -160,12 +160,24 @@
 		<Unit filename="C:/Users/User/CLionProjects/untitled10/libs/algorithms/array/array.h">
 			<Option target="untitled10"/>
 		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/untitled10/libs/data_structures/matrix/matrix.c">
+			<Option target="data_structures"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/untitled10/libs/data_structures/matrix/matrix.h">
+			<Option target="data_structures"/>
+		</Unit>
 		<Unit filename="C:/Users/User/CLionProjects/untitled10/libs/data_structures/vector/vector.c">
 			<Option target="untitled10"/>
 			<Option target="data_structures"/>
 		</Unit>
 		<Unit filename="C:/Users/User/CLionProjects/untitled10/libs/data_structures/vector/vector.h">
 			<Option target="untitled10"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/untitled10/libs/data_structures/vector_void/vector_void.c">
+			<Option target="data_structures"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/untitled10/libs/data_structures/vector_void/vector_void.h">
+			<Option target="data_structures"/>
 		</Unit>
 		<Unit filename="C:/Users/User/CLionProjects/untitled10/main.c">
 			<Option target="untitled10"/>

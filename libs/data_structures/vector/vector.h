@@ -7,10 +7,10 @@
 #ifndef UNTITLED10_VECTOR_H
 #define UNTITLED10_VECTOR_H
 
-typedef struct vector{
-    int *data; // указатель на элемент вектора
+typedef struct vector {
+    void *data; // указатель на элемент вектора
     size_t size; // размер вектора
-    size_t capacity;// вместимость вектора
+    size_t capacity;
 } vector;
 
 
@@ -18,7 +18,7 @@ typedef struct vector{
 vector createVector(size_t n);
 
 //изменяет количество памяти, выделенное под хранение элемента вектора
-void reserve(vector *v, size_t ntwCapfcity);
+void reserve(vector *v, size_t newCapacity);
 
 //удаляет элементы из контейнера, не освобождая память
 void clear(vector *v);

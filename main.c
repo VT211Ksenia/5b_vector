@@ -1,4 +1,5 @@
 #include "libs/data_structures/vector/vector.h"
+#include "libs/data_structures/matrix/matrix.h"
 
 void test_pushBack_notEmpty(){
     vector v = createVector(5);
@@ -56,14 +57,12 @@ void test_front_oneElementInVector(){
 }
 
 int main() {
-    test_pushBack_notEmpty();
-    test_pushBack_isEmpty();
+    matrix a = getMemMatrix(2, 2);
+    inputMatrix(a);
 
-    test_atVector_notEmpty();
-    test_atVector_requestToLastElement();
+    swapRows(a, 1, 2);
 
-    test_back_oneElementInVector();
-    test_front_oneElementInVector();
+    outputMatrix(a);
 
     return 0;
 }

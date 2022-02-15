@@ -10,6 +10,26 @@ C:/Users/User/CLionProjects/untitled10/libs/algorithms/array/array.h
 stddef.h
 -
 
+C:/Users/User/CLionProjects/untitled10/libs/data_structures/matrix/matrix.c
+stdio.h
+-
+stdint.h
+-
+malloc.h
+-
+stdbool.h
+-
+matrix.h
+C:/Users/User/CLionProjects/untitled10/libs/data_structures/matrix/matrix.h
+
+C:/Users/User/CLionProjects/untitled10/libs/data_structures/matrix/matrix.h
+stdbool.h
+-
+stdio.h
+-
+assert.h
+-
+
 C:/Users/User/CLionProjects/untitled10/libs/data_structures/vector/vector.c
 stdio.h
 -
@@ -23,6 +43,20 @@ stdbool.h
 -
 
 C:/Users/User/CLionProjects/untitled10/libs/data_structures/vector/vector.h
+stdbool.h
+-
+stdio.h
+-
+assert.h
+-
+C:/Users/User/CLionProjects/untitled10/libs/algorithms/array/array.h
+-
+
+C:/Users/User/CLionProjects/untitled10/libs/data_structures/vector_void/vector_void.c
+vector_void.h
+C:/Users/User/CLionProjects/untitled10/libs/data_structures/vector_void/vector_void.h
+
+C:/Users/User/CLionProjects/untitled10/libs/data_structures/vector_void/vector_void.h
 stdbool.h
 -
 stdio.h
