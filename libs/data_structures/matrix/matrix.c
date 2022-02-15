@@ -71,20 +71,15 @@ void outputMatrices(matrix *ms, int nMatrices) {
 
 
 void swapRows(matrix m, int i1, int i2) {
-    if (i1 >= m.nRows || i2 >= m.nRows)
-        badIndex();
-
-    swap((int *) &m.values[i1], (int *) &m.values[i2]);
-
+    swap((int*)&m.values[i1], (int*)&m.values[i2]);
 }
 
 void swapColumns(matrix m, int j1, int j2) {
-    if (j1 >= m.nCols || j2 >= m.nCols)
-        badIndex();
-
     for (int i = 0; i < m.nRows; i++)
-        swap((int *) &m.values[j1], (int *) &m.values[j2]);
+        swap(&m.values[i][j1], &m.values[i][j2]);
 }
+
+
 void insertionSortRowsMatrixByRowCriteria(matrix m, int (criteria)(int *, int)) {
     int criteriaArray[m.nRows];
     for (size_t i = 0; i < m.nRows; ++i)
@@ -106,16 +101,16 @@ void insertionSortColsMatrixByColCriteria(matrix m, int (criteria)(int *, int)) 
     for (size_t i = 0; i < m.nCols; ++i) {
         int arrayForRow[m.nRows];
         for (size_t j = 0; j < m.nRows; ++j)
-            arrayForRow[i] = m.values[i][j];
+            arrayForRow[j] = m.values[i][j];
 
-        criteriaArray[i] = criteria(arrayForRow, m.nCols);
+        criteriaArray[i] = criteria(arrayForRow, m.nRows);
     }
 
     for (int i = 1; i < m.nCols; ++i) {
         int j = i;
         while (j > 0 && criteriaArray[j - 1] > criteriaArray[j]) {
             swap(&criteriaArray[j - 1], &criteriaArray[j]);
-            swapRows(m, j - 1, j);
+            swapColumns(m, j - 1, j);
 
             j--;
         }
@@ -236,5 +231,18 @@ int getMax(const int *a, int n){
 
 void secondTask(matrix m){
     insertionSortRowsMatrixByRowCriteria(m, getMax);
+}
+//третья задача
+
+int getMin(const int *a, int n){
+    int minValue = a[0];
+    for(int i = 1; i < n; i++)
+        if( a[i] < minValue)
+            minValue = a[i];
+    return minValue;
+}
+
+void thirdTask(matrix m){
+    insertionSortColsMatrixByColCriteria(m, getMin);
 }
 
