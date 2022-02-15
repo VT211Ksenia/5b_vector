@@ -298,5 +298,8 @@ void transposeIfMatrixHasEqualSumOfRows(matrix m){
 }
 // шестая задача
 bool isMutuallyInverseMatrices(matrix m1, matrix m2){
-
+    matrix m3 = mulMatrices(m1, m2);
+    if(!isEMatrix(m3))
+        return false;
+    return true;
 }
