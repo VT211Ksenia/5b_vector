@@ -54,7 +54,7 @@ bool isFull(vector *v) {
 }
 
 int getVectorValue(vector *v, size_t i) {
-    return v->data[i];
+    return v->data;
 }
 
 void pushBack(vector *v, int x){
@@ -68,6 +68,7 @@ void pushBack(vector *v, int x){
     v->data[v->size] = x;
     v->size++;
 }
+
 void popBack(vector *v){
     if(isEmpty(v)){
         fprintf(stderr, " bad alloc ");

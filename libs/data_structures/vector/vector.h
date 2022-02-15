@@ -8,7 +8,7 @@
 #define UNTITLED10_VECTOR_H
 
 typedef struct vector {
-    void *data; // указатель на элемент вектора
+    int *data; // указатель на элемент вектора
     size_t size; // размер вектора
     size_t capacity;
 } vector;

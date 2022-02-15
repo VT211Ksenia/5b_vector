@@ -34,7 +34,15 @@ void outputMatrices(matrix *ms, int nMatrices);
 
 void swapRows(matrix m, int i1, int i2);
 
-void swapColumns(matrix m, int j1, int j2)
+void swapColumns(matrix m, int j1, int j2);
+
+int getMax(const int *a, int n);
+
+void insertionSortRowsMatrixByRowCriteria(matrix m, int (criteria)(int *, int));
+
+void insertionSortColsMatrixByColCriteria(matrix m, int (criteria)(int *, int));
+
+int getMin(const int *a, int n);
 
 
 #endif //UNTITLED10_MATRIX_H
