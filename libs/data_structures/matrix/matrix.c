@@ -336,23 +336,37 @@ long long findSumOfMaxesOfPseudoDiagonal(matrix m) {
     return sum;
 }
 
+// восьмая задача
 
+int getMinInArea(matrix m){
+    position leftEl = getMaxValuePos(m);
+    position rightEl = getMaxValuePos(m);
 
+    int minEl = m.values[leftEl.rowIndex][leftEl.colIndex];
+    int a[m.nRows];
+    int size = 1;
+    while(leftEl.rowIndex >= 0 && rightEl.rowIndex >= 0) {
+        if (leftEl.colIndex == -1) {
+            leftEl.colIndex++;
+            size--;
+        }
+        if (rightEl.colIndex == m.nCols){
+            rightEl.colIndex--;
+            size--;
+        }
+        int i = 0;
+        while (i < size) {
+            a[i] = m.values[leftEl.rowIndex][leftEl.colIndex + i];
+            i++;
+        }
 
+        minEl = getMin(a, size);
 
-//    int a[(m.nRows + m.nCols)];
-//    int counter = -1;
-//
-//    for(int l = 1; l < m.nRows; l++) {
-//        int i = l;
-//        int j = l;
-//        int maxValue = m.values[i][j];
-//        while (i < m.nRows && j < m.nCols)
-//            maxValue = max(m.values[i++][j++], maxValue);
-//
-//        a[counter++] = maxValue;
-//    }
-//    for(int k = 1; k < m.nCols; k++)
-//        int i = k;
-
-
+        rightEl.rowIndex--;
+        rightEl.colIndex++;
+        leftEl.rowIndex--;
+        leftEl.colIndex--;
+        size +=2;
+    }
+    return minEl;
+}
