@@ -36,13 +36,32 @@ void swapRows(matrix m, int i1, int i2);
 
 void swapColumns(matrix m, int j1, int j2);
 
-int getMax(const int *a, int n);
-
 void insertionSortRowsMatrixByRowCriteria(matrix m, int (criteria)(int *, int));
 
 void insertionSortColsMatrixByColCriteria(matrix m, int (criteria)(int *, int));
 
+bool isSquareMatrix(matrix m);
+
+bool twoMatricesEqual(matrix m1, matrix m2);
+
+bool isEMatrix(matrix m);
+
+bool isSymmetricMatrix(matrix m);
+
+void transposeSquareMatrix(matrix m);
+
+position getMinValuePos(matrix m);
+
+position getMaxValuePos(matrix m);
+
+matrix createMatrixFromArray(const int *a, size_t nRows,
+                             size_t nCols);
+
+matrix *createArrayOfMatrixFromArray(const int *values,
+                                     size_t nMatrices, size_t nRows, size_t nCols);
+
 int getMin(const int *a, int n);
 
+int getMax(const int *a, int n);
 
 #endif //UNTITLED10_MATRIX_H

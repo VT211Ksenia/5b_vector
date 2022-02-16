@@ -338,35 +338,22 @@ long long findSumOfMaxesOfPseudoDiagonal(matrix m) {
 
 // восьмая задача
 
-int getMinInArea(matrix m){
-    position leftEl = getMaxValuePos(m);
-    position rightEl = getMaxValuePos(m);
+int min(int a, int b) {
+    return a > b ? b : a;
+}
 
-    int minEl = m.values[leftEl.rowIndex][leftEl.colIndex];
-    int a[m.nRows];
-    int size = 1;
-    while(leftEl.rowIndex >= 0 && rightEl.rowIndex >= 0) {
-        if (leftEl.colIndex == -1) {
-            leftEl.colIndex++;
-            size--;
-        }
-        if (rightEl.colIndex == m.nCols){
-            rightEl.colIndex--;
-            size--;
-        }
-        int i = 0;
-        while (i < size) {
-            a[i] = m.values[leftEl.rowIndex][leftEl.colIndex + i];
-            i++;
-        }
+int getMinInArea(matrix m) {
+    position minPos = getMaxValuePos(m);
+    int minElem = m.values[minPos.rowIndex][minPos.colIndex];
 
-        minEl = getMin(a, size);
+    int jRight = minPos.colIndex;
+    int jLeft = minPos.colIndex;
+    for (int i = minPos.rowIndex - 1; i >= 0; i--) {
+        jLeft = jLeft > 0 ? jLeft - 1 : jLeft;
+        jRight = jRight < m.nCols ? jRight + 1 : jRight;
 
-        rightEl.rowIndex--;
-        rightEl.colIndex++;
-        leftEl.rowIndex--;
-        leftEl.colIndex--;
-        size +=2;
+        minElem = min(getMin(&m.values[i][jLeft], jRight - jLeft), minElem);
+
     }
-    return minEl;
+    return minElem;
 }
