@@ -432,3 +432,24 @@ void insertionSortRowsMatrixByRowCriteriaF(matrix m, float (criteria)(int *, int
 void sortByDistances(matrix m){
     insertionSortRowsMatrixByRowCriteriaF(m, getDistance);
 }
+
+// 11 задача //
+
+int getNSpecialElement(matrix m){
+    int sumColArray[m.nCols];
+    int colArray[m.nRows];
+    for(int i = 0; i < m.nCols; i ++) {
+        for (int j = 0; j < m.nRows; i++)
+            colArray[i] = m.values[j][i];
+
+        sumColArray[i] = getSum(colArray, m.nRows);
+    }
+
+    int counter = 0;
+    for (int i = 0; i < m.nCols; i++)
+        for (int j = 0; j < m.nRows; j++)
+            if (sumColArray[i] - m.values[j][i] < sumColArray[i])
+                counter++;
+
+    return counter;
+}
