@@ -4,6 +4,8 @@
 #include <stdbool.h>
 #include "matrix.h"
 #include <memory.h>
+#include <assert.h>
+#include <stdlib.h>
 
 void badIndex() {
     fprintf(stderr, "bad index\n");
@@ -436,7 +438,7 @@ void sortByDistances(matrix m){
 // 11 задача //
 
 int getNSpecialElement(matrix m){
-    int sumColArray[m.nCols];
+    long long sumColArray[m.nCols];
     int colArray[m.nRows];
     for(int i = 0; i < m.nCols; i ++) {
         for (int j = 0; j < m.nRows; i++)
@@ -452,4 +454,42 @@ int getNSpecialElement(matrix m){
                 counter++;
 
     return counter;
+}
+
+// 10
+
+int compare_long_long(const void *a, const void *b) {
+    long long arg1 = *(const long long *) a;
+    long long arg2 = *(const long long *) b;
+
+    if (arg1 < arg2) {
+        return -1;
+    }
+
+    if (arg1 > arg2) {
+        return 1;
+    }
+
+    return 0;
+}
+
+int countEqClassesByRowsSum(matrix m){
+    long long arrayRowSum[15];
+    for (int i = 0; i < (m).nRows; ++i) {
+        arrayRowSum[i] = getSum((m).values[i], (m).nCols);
+    }
+
+    qsort(arrayRowSum, (m).nRows, sizeof(long long), compare_long_long);
+
+    int counterClasses = 0;
+    for (int i = 1; i < (m).nRows; ++i) {
+        if (arrayRowSum[i] != arrayRowSum[i - 1]){
+            if (counterClasses == 0)
+                counterClasses++;
+
+            counterClasses++;
+        }
+    }
+
+    return counterClasses;
 }
