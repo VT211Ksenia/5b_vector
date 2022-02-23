@@ -7,6 +7,8 @@
 #include <assert.h>
 #include <stdlib.h>
 
+#define EPS 0.00001
+
 void badIndex() {
     fprintf(stderr, "bad index\n");
     exit(1);
@@ -69,6 +71,14 @@ void outputMatrix(matrix m) {
     for (int i = 0; i < m.nRows; i++) {
         for (int j = 0; j < m.nCols; j++)
             printf("%d ", m.values[i][j]);
+        printf("\b\b\n");
+    }
+}
+
+void outputMatrixF(matrixF m) {
+    for (int i = 0; i < m.nRows; i++) {
+        for (int j = 0; j < m.nCols; j++)
+            printf("%f ", m.values[i][j]);
         printf("\b\b\n");
     }
 }
@@ -575,5 +585,33 @@ void printMatrixWithMaxZeroRows(matrix *ms, int nMatrix){
     for (int i = 0; i < nMatrix; ++i) {
         if (countZeroRows(ms[i]) == maxZeroRows)
             outputMatrix(ms[i]);
+    }
+}
+// 15
+
+float getAbsoluteMax(matrixF m){
+    float absoluteMax = fabs((m).values[0][0]);
+    for (int i = 0; i < (m).nRows; ++i) {
+        for (int j = 0; j < (m).nCols; ++j) {
+            float absValue = fabs((m).values[i][j]);
+            if (absoluteMax < absValue)
+                absoluteMax = absValue;
+        }
+    }
+
+    return absoluteMax;
+}
+
+void printMatrixWithMinNormMax(matrixF *ms, int nMatrix){
+    float minAbsoluteMax = getAbsoluteMax(ms[0]);
+    for (int i = 1; i < nMatrix; ++i) {
+        float absoluteMax = getAbsoluteMax(ms[i]);
+        if (minAbsoluteMax > absoluteMax)
+            minAbsoluteMax = absoluteMax;
+    }
+
+    for (int i = 0; i < nMatrix; ++i) {
+        if (getAbsoluteMax(ms[i]) - minAbsoluteMax < EPS)
+            outputMatrixF(ms[i]);
     }
 }

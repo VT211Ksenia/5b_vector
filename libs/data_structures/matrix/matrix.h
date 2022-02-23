@@ -7,11 +7,17 @@
 #define UNTITLED10_MATRIX_H
 
 
-typedef struct matrix {
+typedef struct {
     int **values;
     int nRows;
     int nCols;
 } matrix;
+
+typedef struct {
+    float **values;
+    int nRows;
+    int nCols;
+} matrixF;
 
 typedef struct position {
     int rowIndex;
@@ -40,6 +46,8 @@ void inputMatrices(matrix *ms, int nMatrices);
 
 //вывод матрицы m
 void outputMatrix(matrix m);
+
+void outputMatrixF(matrixF m);
 
 //вывод массива из nMatrices матриц, хранящейся по адресу ms
 void outputMatrices(matrix *ms, int nMatrices);
