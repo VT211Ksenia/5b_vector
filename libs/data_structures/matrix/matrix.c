@@ -545,3 +545,35 @@ int countNonDescendingRowsMatrices(matrix *ms, int nMatrix){
         counterSortedMatrices += hasAllNonDescendingRows(ms[i]);
     return counterSortedMatrices;
 }
+// 14 задача
+
+int countValues(const int *a, int n, int value){
+    int counterValue = 0;
+    for (int i = 0; i < n; ++i)
+        counterValue += a[i] == value;
+
+    return counterValue;
+}
+
+int countZeroRows(matrix m){
+    int counterZeroRows = 0;
+    for (int i = 0; i < (m).nRows; ++i)
+        counterZeroRows += countValues((m).values[i], (m).nCols, 0) == (m).nCols;
+
+    return counterZeroRows;
+}
+
+void printMatrixWithMaxZeroRows(matrix *ms, int nMatrix){
+    int maxZeroRows = 0;
+    for (int i = 0; i <
+                    nMatrix; ++i) {
+        int counterZeroRows = countZeroRows(ms[i]);
+        if (maxZeroRows < counterZeroRows)
+            maxZeroRows = counterZeroRows;
+    }
+
+    for (int i = 0; i < nMatrix; ++i) {
+        if (countZeroRows(ms[i]) == maxZeroRows)
+            outputMatrix(ms[i]);
+    }
+}
