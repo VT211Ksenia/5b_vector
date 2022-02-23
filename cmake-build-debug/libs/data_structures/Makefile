@@ -153,6 +153,30 @@ matrix/matrix.c.s:
 	cd /d C:\Users\User\CLionProjects\untitled10\cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs\data_structures\CMakeFiles\data_structures.dir\build.make libs/data_structures/CMakeFiles/data_structures.dir/matrix/matrix.c.s
 .PHONY : matrix/matrix.c.s
 
+matrix_test/matrix_test.obj: matrix_test/matrix_test.c.obj
+.PHONY : matrix_test/matrix_test.obj
+
+# target to build an object file
+matrix_test/matrix_test.c.obj:
+	cd /d C:\Users\User\CLionProjects\untitled10\cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs\data_structures\CMakeFiles\data_structures.dir\build.make libs/data_structures/CMakeFiles/data_structures.dir/matrix_test/matrix_test.c.obj
+.PHONY : matrix_test/matrix_test.c.obj
+
+matrix_test/matrix_test.i: matrix_test/matrix_test.c.i
+.PHONY : matrix_test/matrix_test.i
+
+# target to preprocess a source file
+matrix_test/matrix_test.c.i:
+	cd /d C:\Users\User\CLionProjects\untitled10\cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs\data_structures\CMakeFiles\data_structures.dir\build.make libs/data_structures/CMakeFiles/data_structures.dir/matrix_test/matrix_test.c.i
+.PHONY : matrix_test/matrix_test.c.i
+
+matrix_test/matrix_test.s: matrix_test/matrix_test.c.s
+.PHONY : matrix_test/matrix_test.s
+
+# target to generate assembly for a file
+matrix_test/matrix_test.c.s:
+	cd /d C:\Users\User\CLionProjects\untitled10\cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs\data_structures\CMakeFiles\data_structures.dir\build.make libs/data_structures/CMakeFiles/data_structures.dir/matrix_test/matrix_test.c.s
+.PHONY : matrix_test/matrix_test.c.s
+
 vector/vector.obj: vector/vector.c.obj
 .PHONY : vector/vector.obj
 
@@ -213,6 +237,9 @@ help:
 	@echo ... matrix/matrix.obj
 	@echo ... matrix/matrix.i
 	@echo ... matrix/matrix.s
+	@echo ... matrix_test/matrix_test.obj
+	@echo ... matrix_test/matrix_test.i
+	@echo ... matrix_test/matrix_test.s
 	@echo ... vector/vector.obj
 	@echo ... vector/vector.i
 	@echo ... vector/vector.s

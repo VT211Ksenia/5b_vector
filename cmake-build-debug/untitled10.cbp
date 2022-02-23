@@ -166,6 +166,12 @@
 		<Unit filename="C:/Users/User/CLionProjects/untitled10/libs/data_structures/matrix/matrix.h">
 			<Option target="data_structures"/>
 		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/untitled10/libs/data_structures/matrix_test/matrix_test.c">
+			<Option target="data_structures"/>
+		</Unit>
+		<Unit filename="C:/Users/User/CLionProjects/untitled10/libs/data_structures/matrix_test/matrix_test.h">
+			<Option target="data_structures"/>
+		</Unit>
 		<Unit filename="C:/Users/User/CLionProjects/untitled10/libs/data_structures/vector/vector.c">
 			<Option target="untitled10"/>
 			<Option target="data_structures"/>

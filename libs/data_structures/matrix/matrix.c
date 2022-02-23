@@ -10,7 +10,7 @@
 #define EPS 0.00001
 
 void badIndex() {
-    fprintf(stderr, "bad index\n");
+    fprintf(stderr, "bad in213dex\n");
     exit(1);
 }
 
@@ -19,6 +19,30 @@ void swap(int *a, int *b) {
     *a = *b;
     *b = t;
 }
+
+// ввод матрицы
+void inputMatrixF(matrixF m) {
+    for (int i = 0; i < (m).nRows; ++i)
+        for (int j = 0; j < (m).nCols; ++j)
+            scanf("%f", &(m).values[i][j]);
+}
+
+// вывод матрицы
+void inputMatricesF(matrixF *ms, int nMatrices) {
+    for (int i = 0; i < nMatrices; ++i)
+        inputMatrixF(ms[i]);
+}
+
+// ввод вещественной матрицы
+void outputMatrixF(matrixF m) {
+    for (int i = 0; i < (m).nRows; ++i) {
+        for (int j = 0; j < (m).nCols; ++j)
+            printf("%f ", (m).values[i][j]);
+
+        printf("\b\b\n");
+    }
+}
+
 
 //размещает в динамической памяти матрицу размером nRows на nCols. Возвращает матрицу
 matrix getMemMatrix(int nRows, int nCols) {
@@ -71,14 +95,6 @@ void outputMatrix(matrix m) {
     for (int i = 0; i < m.nRows; i++) {
         for (int j = 0; j < m.nCols; j++)
             printf("%d ", m.values[i][j]);
-        printf("\b\b\n");
-    }
-}
-
-void outputMatrixF(matrixF m) {
-    for (int i = 0; i < m.nRows; i++) {
-        for (int j = 0; j < m.nCols; j++)
-            printf("%f ", m.values[i][j]);
         printf("\b\b\n");
     }
 }
@@ -160,9 +176,9 @@ bool twoMatricesEqual(matrix m1, matrix m2) {
         return false;
     for (int i = 0; i < m1.nRows; i++)
         //for (int j = 0; j < m1.nCols; j++)
-            if(memcmp(m1.values[i], m2.values[i], sizeof (int) * m1.nCols))
+        if (memcmp(m1.values[i], m2.values[i], sizeof(int) * m1.nCols))
             //if (m1.values[i][j] != m2.values[i][j])
-                return false;
+            return false;
 
     return true;
 }
@@ -175,7 +191,7 @@ bool isEMatrix(matrix m) {
     for (int i = 0; i < m.nRows; i++)
         for (int j = 0; j < m.nCols; i++)
             if ((i != j && m.values[i][j] != 0) || (i == j && m.values[i][j] != 1));
-                return false;
+    return false;
     return true;
 }
 
@@ -186,7 +202,7 @@ bool isSymmetricMatrix(matrix m) {
     if (!isSquareMatrix(m))
         return false;
     for (int i = 0; i < m.nRows; i++)
-        for (int j = i+1; j < m.nCols; i++)
+        for (int j = i + 1; j < m.nCols; i++)
             if (m.values[i][j] != m.values[j][i])
                 return false;
     return true;
@@ -404,22 +420,22 @@ int getMinInArea(matrix m) {
 
 
 void transposeMatrix(matrix m) {
-        for (int i = 0; i < m.nRows; i++)
-            for (int j = 0; j < m.nCols; i++)
-                if (i == j)
-                    swap((int *) &m.values[i][j], (int *) &m.values[j][i]);
-    }
+    for (int i = 0; i < m.nRows; i++)
+        for (int j = 0; j < m.nCols; i++)
+            if (i == j)
+                swap((int *) &m.values[i][j], (int *) &m.values[j][i]);
+}
 
 
 //     9 задача   //
-float getDistance(int *a, int n){
+float getDistance(int *a, int n) {
     double sum = 0;
-    for( int i = 0; i < n; i++)
+    for (int i = 0; i < n; i++)
         sum += pow(a[i], 2);
     return sqrt(sum);
 }
 
-void swapF(float *a, float *b){
+void swapF(float *a, float *b) {
     float temp = *b;
     *b = *a;
     *a = temp;
@@ -441,16 +457,16 @@ void insertionSortRowsMatrixByRowCriteriaF(matrix m, float (criteria)(int *, int
     }
 }
 
-void sortByDistances(matrix m){
+void sortByDistances(matrix m) {
     insertionSortRowsMatrixByRowCriteriaF(m, getDistance);
 }
 
 // 11 задача //
 
-int getNSpecialElement(matrix m){
+int getNSpecialElement(matrix m) {
     long long sumColArray[m.nCols];
     int colArray[m.nRows];
-    for(int i = 0; i < m.nCols; i ++) {
+    for (int i = 0; i < m.nCols; i++) {
         for (int j = 0; j < m.nRows; i++)
             colArray[i] = m.values[j][i];
 
@@ -483,7 +499,7 @@ int compare_long_long(const void *a, const void *b) {
     return 0;
 }
 
-int countEqClassesByRowsSum(matrix m){
+int countEqClassesByRowsSum(matrix m) {
     long long arrayRowSum[15];
     for (int i = 0; i < (m).nRows; ++i) {
         arrayRowSum[i] = getSum((m).values[i], (m).nCols);
@@ -493,7 +509,7 @@ int countEqClassesByRowsSum(matrix m){
 
     int counterClasses = 0;
     for (int i = 1; i < (m).nRows; ++i) {
-        if (arrayRowSum[i] != arrayRowSum[i - 1]){
+        if (arrayRowSum[i] != arrayRowSum[i - 1]) {
             if (counterClasses == 0)
                 counterClasses++;
 
@@ -505,12 +521,12 @@ int countEqClassesByRowsSum(matrix m){
 }
 // 12 задача
 
-position getLeftMin(matrix m){
+position getLeftMin(matrix m) {
     position minElementPos = {0, 0};
     int minValue = (m).values[0][0];
     for (int i = 0; i < (m).nRows; ++i) {
         for (int j = 0; j < (m).nCols; ++j) {
-            if (minValue > (m).values[i][j]){
+            if (minValue > (m).values[i][j]) {
                 minValue = (m).values[i][j];
                 (minElementPos).rowIndex = i;
                 (minElementPos).colIndex = j;
@@ -521,7 +537,7 @@ position getLeftMin(matrix m){
     return minElementPos;
 }
 
-void swapPenultimateRow(matrix m){
+void swapPenultimateRow(matrix m) {
     int penultimateRow = (m).nRows - 2;
     position leftMinPos = getLeftMin(m);
     int colArr[10];
@@ -535,7 +551,7 @@ void swapPenultimateRow(matrix m){
 }
 // 13 задача
 
-bool isNonDescendingSorted(const int *a, const int n){
+bool isNonDescendingSorted(const int *a, const int n) {
     for (int i = 0; i < n - 1; ++i)
         if (a[i] > a[i + 1])
             return false;
@@ -543,21 +559,22 @@ bool isNonDescendingSorted(const int *a, const int n){
     return true;
 }
 
-bool hasAllNonDescendingRows(matrix m){
-    for(int i = 0; i < m.nRows; i++)
-        if(!isNonDescendingSorted(m.values[i], m.nRows))
+bool hasAllNonDescendingRows(matrix m) {
+    for (int i = 0; i < m.nRows; i++)
+        if (!isNonDescendingSorted(m.values[i], m.nRows))
             return false;
     return true;
 }
-int countNonDescendingRowsMatrices(matrix *ms, int nMatrix){
+
+int countNonDescendingRowsMatrices(matrix *ms, int nMatrix) {
     int counterSortedMatrices = 0;
-    for(int i = 0; i < nMatrix; i++)
+    for (int i = 0; i < nMatrix; i++)
         counterSortedMatrices += hasAllNonDescendingRows(ms[i]);
     return counterSortedMatrices;
 }
 // 14 задача
 
-int countValues(const int *a, int n, int value){
+int countValues(const int *a, int n, int value) {
     int counterValue = 0;
     for (int i = 0; i < n; ++i)
         counterValue += a[i] == value;
@@ -565,7 +582,7 @@ int countValues(const int *a, int n, int value){
     return counterValue;
 }
 
-int countZeroRows(matrix m){
+int countZeroRows(matrix m) {
     int counterZeroRows = 0;
     for (int i = 0; i < (m).nRows; ++i)
         counterZeroRows += countValues((m).values[i], (m).nCols, 0) == (m).nCols;
@@ -573,7 +590,7 @@ int countZeroRows(matrix m){
     return counterZeroRows;
 }
 
-void printMatrixWithMaxZeroRows(matrix *ms, int nMatrix){
+void printMatrixWithMaxZeroRows(matrix *ms, int nMatrix) {
     int maxZeroRows = 0;
     for (int i = 0; i <
                     nMatrix; ++i) {
@@ -589,7 +606,7 @@ void printMatrixWithMaxZeroRows(matrix *ms, int nMatrix){
 }
 // 15
 
-float getAbsoluteMax(matrixF m){
+float getAbsoluteMax(matrixF m) {
     float absoluteMax = fabs((m).values[0][0]);
     for (int i = 0; i < (m).nRows; ++i) {
         for (int j = 0; j < (m).nCols; ++j) {
@@ -602,7 +619,7 @@ float getAbsoluteMax(matrixF m){
     return absoluteMax;
 }
 
-void printMatrixWithMinNormMax(matrixF *ms, int nMatrix){
+void printMatrixWithMinNormMax(matrixF *ms, int nMatrix) {
     float minAbsoluteMax = getAbsoluteMax(ms[0]);
     for (int i = 1; i < nMatrix; ++i) {
         float absoluteMax = getAbsoluteMax(ms[i]);

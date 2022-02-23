@@ -102,5 +102,7 @@ matrix createMatrixFromArray(const int *a, size_t nRows,
 matrix *createArrayOfMatrixFromArray(const int *values,
                                      size_t nMatrices, size_t nRows, size_t nCols);
 
+long long getSum(int *a, int n);
+
 
 #endif //UNTITLED10_MATRIX_H
