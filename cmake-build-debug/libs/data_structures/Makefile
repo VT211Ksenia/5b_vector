@@ -177,6 +177,30 @@ matrix_test/matrix_test.c.s:
 	cd /d C:\Users\User\CLionProjects\untitled10\cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs\data_structures\CMakeFiles\data_structures.dir\build.make libs/data_structures/CMakeFiles/data_structures.dir/matrix_test/matrix_test.c.s
 .PHONY : matrix_test/matrix_test.c.s
 
+string_/string_.obj: string_/string_.c.obj
+.PHONY : string_/string_.obj
+
+# target to build an object file
+string_/string_.c.obj:
+	cd /d C:\Users\User\CLionProjects\untitled10\cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs\data_structures\CMakeFiles\data_structures.dir\build.make libs/data_structures/CMakeFiles/data_structures.dir/string_/string_.c.obj
+.PHONY : string_/string_.c.obj
+
+string_/string_.i: string_/string_.c.i
+.PHONY : string_/string_.i
+
+# target to preprocess a source file
+string_/string_.c.i:
+	cd /d C:\Users\User\CLionProjects\untitled10\cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs\data_structures\CMakeFiles\data_structures.dir\build.make libs/data_structures/CMakeFiles/data_structures.dir/string_/string_.c.i
+.PHONY : string_/string_.c.i
+
+string_/string_.s: string_/string_.c.s
+.PHONY : string_/string_.s
+
+# target to generate assembly for a file
+string_/string_.c.s:
+	cd /d C:\Users\User\CLionProjects\untitled10\cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs\data_structures\CMakeFiles\data_structures.dir\build.make libs/data_structures/CMakeFiles/data_structures.dir/string_/string_.c.s
+.PHONY : string_/string_.c.s
+
 vector/vector.obj: vector/vector.c.obj
 .PHONY : vector/vector.obj
 
@@ -240,6 +264,9 @@ help:
 	@echo ... matrix_test/matrix_test.obj
 	@echo ... matrix_test/matrix_test.i
 	@echo ... matrix_test/matrix_test.s
+	@echo ... string_/string_.obj
+	@echo ... string_/string_.i
+	@echo ... string_/string_.s
 	@echo ... vector/vector.obj
 	@echo ... vector/vector.i
 	@echo ... vector/vector.s
