@@ -96,3 +96,4 @@ void removeNonLetters ( char *s) {
     * destination = '\0';
 }
 
+
