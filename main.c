@@ -4,5 +4,9 @@
 
 
 int main() {
+    char a[] = {1, ' ', 'b'};
+
+
+
     return 0;
 }

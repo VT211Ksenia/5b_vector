@@ -87,13 +87,29 @@ char* copyIfReverse(char *rbeginSource, const char *rendSource, char *beginDesti
 char getEndOfString(char *begin){
     while(*begin != '\0')
         begin++;
-    return begin;
+    return *begin;
 }
 
-void removeNonLetters ( char *s) {
-    char * endSource = getEndOfString (s);
-    char * destination = copyIf (s, endSource , s, isgraph );
-    * destination = '\0';
+void removeNonLetters(char *s) {
+    char *endSource = getEndOfString(s);
+    char *destination = copyIf(s, endSource, s, isgraph);
+    *destination = '\0';
 }
 
+// 2 задача
+
+void removeExtraSpaces(char *s) {
+    char *begin = s;
+    while (*s != '\0') {
+        if (isspace(*begin) && isspace(*s)) {
+            begin++;
+            continue;
+        }
+        *s = *begin;
+        s++;
+        begin++;
+    }
+
+    *s = '\0';
+}
 
