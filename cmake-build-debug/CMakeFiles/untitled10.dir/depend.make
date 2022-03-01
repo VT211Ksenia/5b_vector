@@ -11,7 +11,5 @@ CMakeFiles/untitled10.dir/libs/data_structures/vector/vector.c.obj: \
  ../libs/data_structures/vector/vector.c \
  ../libs/data_structures/vector/vector.h
 CMakeFiles/untitled10.dir/main.c.obj: \
- ../libs/algorithms/array/array.h \
- ../libs/data_structures/matrix/matrix.h \
- ../libs/data_structures/vector/vector.h \
+ ../libs/data_structures/string_/string_.h \
  ../main.c

@@ -17,6 +17,12 @@ stdbool.h
 -
 matrix.h
 C:/Users/User/CLionProjects/untitled10/libs/data_structures/matrix/matrix.h
+memory.h
+-
+assert.h
+-
+stdlib.h
+-
 
 C:/Users/User/CLionProjects/untitled10/libs/data_structures/matrix/matrix.h
 stdbool.h
@@ -24,5 +30,33 @@ stdbool.h
 stdio.h
 -
 assert.h
+-
+math.h
+-
+
+C:/Users/User/CLionProjects/untitled10/libs/data_structures/matrix_test/matrix_test.c
+matrix_test.h
+C:/Users/User/CLionProjects/untitled10/libs/data_structures/matrix_test/matrix_test.h
+
+C:/Users/User/CLionProjects/untitled10/libs/data_structures/matrix_test/matrix_test.h
+C:/Users/User/CLionProjects/untitled10/libs/data_structures/matrix/matrix.h
+-
+
+C:/Users/User/CLionProjects/untitled10/libs/data_structures/string_/string_.c
+string_.h
+C:/Users/User/CLionProjects/untitled10/libs/data_structures/string_/string_.h
+
+C:/Users/User/CLionProjects/untitled10/libs/data_structures/string_/string_.h
+stdbool.h
+-
+stdio.h
+-
+assert.h
+-
+math.h
+-
+ctype.h
+-
+memory.h
 -
 
