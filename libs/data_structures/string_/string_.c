@@ -120,11 +120,6 @@ void removeExtraSpaces(char *s) {
 
 char _stringBuffer[MAX_STRING_SIZE + 1];
 
-typedef struct WordDescriptor {
-    char *begin ;   // позиция начала слова
-    char *end ;     // позиция первого символа, после последнего символа слова
-} WordDescriptor;
-
 int getWord (char *beginSearch, WordDescriptor *word){
     word->begin = findNonSpace (beginSearch);
     if (*word -> begin == '\0')
@@ -195,4 +190,35 @@ bool isSortedByLexicographicDictionary (char *s) {
         begin = w2.end;
     }
     return true;
+}
+
+// 10 Задачач //
+
+void inputArrayOfWords(char *s, BagOfWords *words){
+    (words)->size = 0;
+    WordDescriptor word;
+    while (getWord(s, &word)){
+        (words)->words[(words)->size] = word;
+        s = word.end;
+
+        (words)->size++;
+    }
+}
+
+char* reverseString (char *s){
+    copy(s, getEndOfString(s), _stringBuffer);
+
+    BagOfWords words;
+    inputArrayOfWords(_stringBuffer, &words);
+
+    char *result = s;
+    while ((words).size--) {
+        result = copy((words).words[(words).size].begin, (words).words[(words).size].end, result);
+        *result = ' ';
+        result++;
+    }
+
+    *(result - 1)= '\0';
+
+    return result;
 }

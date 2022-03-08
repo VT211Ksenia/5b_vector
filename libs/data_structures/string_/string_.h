@@ -11,6 +11,19 @@
 #ifndef UNTITLED10_STRING__H
 #define UNTITLED10_STRING__H
 
+typedef struct WordDescriptor {
+    char *begin ; // позиция начала слова
+    char *end ; // позиция первого символа, после последнего символа слова
+} WordDescriptor;
+
+char* reverseString (char *s);
+
+
+typedef struct BagOfWords{
+    WordDescriptor words[1000];
+    size_t size;
+} BagOfWords;
+
 size_t strLen_(const char *begin);
 
 char* find(char *begin, char *end, int ch);

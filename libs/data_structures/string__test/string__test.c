@@ -321,6 +321,7 @@ void test_removeExtraSpaces_stringWithoutSpaces() {
 
     char expectation[MAX_STRING_SIZE] = "naruto";
 
+
     assert(strcmp(s, expectation) == 0);
 }
 
@@ -370,5 +371,52 @@ void test_areWordsOfStringLexicographicallyOrdered() {
     test_areWordsOfStringLexicographicallyOrdered_twoWordsEquals();
     test_areWordsOfStringLexicographicallyOrdered_w1LessW2();
     test_areWordsOfStringLexicographicallyOrdered_w1MoreW2();
+}
+
+void test_reverseString_emptyString() {
+    char s[MAX_STRING_SIZE] = "";
+
+    reverseString(s);
+
+    char expectation[MAX_STRING_SIZE] = "";
+
+    assert(strcmp(s, expectation) == 0);
+}
+
+void test_reverseString_oneWord() {
+    char s[MAX_STRING_SIZE] = "jaba";
+
+    reverseString(s);
+
+    char expectation[MAX_STRING_SIZE] = "jaba";
+
+    assert(strcmp(s, expectation) == 0);
+}
+
+void test_reverseString_twoWord() {
+    char s[MAX_STRING_SIZE] = "jaba man";
+
+    reverseString(s);
+
+    char expectation[MAX_STRING_SIZE] = "man jaba";
+
+    assert(strcmp(s, expectation) == 0);
+}
+
+void test_reverseString_fewWord() {
+    char s[MAX_STRING_SIZE] = "best jaba man";
+
+    reverseString(s);
+
+    char expectation[MAX_STRING_SIZE] = "man jaba best";
+
+    assert(strcmp(s, expectation) == 0);
+}
+
+void test_reverseWordsOfString() {
+    test_reverseString_emptyString();
+    test_reverseString_oneWord();
+    test_reverseString_twoWord();
+    test_reverseString_fewWord();
 }
 
