@@ -7,4 +7,4 @@ add_library(data_structures
         matrix_test/matrix_test.c
         matrix_test/matrix_test.h
         string_/string_.c
-        string_/string_.h)
+        string_/string_.h string__test/string__test.c string__test/string__test.h)

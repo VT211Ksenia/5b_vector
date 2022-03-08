@@ -21,7 +21,6 @@ char* findNonSpace(char *begin){
             return begin;
         begin++;
     }
-    return begin;
 }
 
 char* findSpace(char *begin){
@@ -30,7 +29,6 @@ char* findSpace(char *begin){
             return begin;
         begin++;
     }
-    return begin;
 }
 
 char* findNonSpaceReverse(char *rbegin, const char *rend){
@@ -39,7 +37,6 @@ char* findNonSpaceReverse(char *rbegin, const char *rend){
             return rbegin;
         rbegin--;
     }
-    return rbegin;
 }
 
 char* findSpaceReverse(char *rbegin, const char *rend){
@@ -48,7 +45,6 @@ char* findSpaceReverse(char *rbegin, const char *rend){
             return rbegin;
         rbegin--;
     }
-    return rbegin;
 }
 
 int strcmp ( const char *lhs , const char *rhs){
@@ -59,25 +55,30 @@ int strcmp ( const char *lhs , const char *rhs){
 }
 
 char* copy(const char *beginSource, const char *endSource, char *beginDestination){
-    memcpy(&beginSource, beginDestination, *endSource);
+    memcpy(&beginDestination, beginSource, endSource - beginSource);
+
+    return beginDestination + (endSource - beginSource);
 }
 
 char* copyIf(char *beginSource, const char *endSource, char *beginDestination, int (*f)(int)) {
     while (beginSource != endSource) {
-        if (f(*beginSource))
+        if (f(*beginSource)) {
             *beginDestination = *beginSource;
+            beginDestination++;
+        }
         beginSource++;
-        beginDestination++;
     }
      return beginDestination;
 }
 
+
 char* copyIfReverse(char *rbeginSource, const char *rendSource, char *beginDestination, int (*f)(int)){
     while (rendSource != rbeginSource){
-        if(f(*rbeginSource))
+        if(f(*rbeginSource)) {
             *beginDestination = *rbeginSource;
+            beginDestination++;
+        }
         rbeginSource--;
-        beginDestination++;
     }
     return beginDestination;
 }
@@ -99,15 +100,16 @@ void removeNonLetters(char *s) {
 // 2 задача
 
 void removeExtraSpaces(char *s) {
-    char *begin = s;
+    char *begin = s + 1;
+    s++;
     while (*s != '\0') {
-        if (isspace(*begin) && isspace(*s)) {
+        if (isspace(*begin) && isspace(*s - 1))
             begin++;
-            continue;
-        }
-        *s = *begin;
-        s++;
-        begin++;
+        else{
+                *s = *begin;
+                s++;
+                begin++;
+            }
     }
 
     *s = '\0';
@@ -167,14 +169,30 @@ void replaceNumberWithSpaces(char *s){
                 *s = ' ';
                 s++;
             }
-            continue;
+        } else {
+            *s = *startStringBuffer;
+            s++;
+            startStringBuffer++;
         }
-
-        *s = *startStringBuffer;
-        s++;
-        startStringBuffer++;
     }
 
     *s = '\0';
 }
 
+// 6 задача //
+bool isSortedByLexicographicDictionary (char *s) {
+    WordDescriptor w1;
+    if (!getWord(s, &w1))
+        return true;
+
+    WordDescriptor w2 = w1;
+    char *begin = (w2).end;
+    while (getWord(begin, &w1)) {
+        if (strcmp((w1).begin, (w2).begin) > 0)
+            return false;
+
+        w2 = w1;
+        begin = w2.end;
+    }
+    return true;
+}

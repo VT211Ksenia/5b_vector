@@ -201,6 +201,30 @@ string_/string_.c.s:
 	cd /d C:\Users\User\CLionProjects\untitled10\cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs\data_structures\CMakeFiles\data_structures.dir\build.make libs/data_structures/CMakeFiles/data_structures.dir/string_/string_.c.s
 .PHONY : string_/string_.c.s
 
+string__test/string__test.obj: string__test/string__test.c.obj
+.PHONY : string__test/string__test.obj
+
+# target to build an object file
+string__test/string__test.c.obj:
+	cd /d C:\Users\User\CLionProjects\untitled10\cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs\data_structures\CMakeFiles\data_structures.dir\build.make libs/data_structures/CMakeFiles/data_structures.dir/string__test/string__test.c.obj
+.PHONY : string__test/string__test.c.obj
+
+string__test/string__test.i: string__test/string__test.c.i
+.PHONY : string__test/string__test.i
+
+# target to preprocess a source file
+string__test/string__test.c.i:
+	cd /d C:\Users\User\CLionProjects\untitled10\cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs\data_structures\CMakeFiles\data_structures.dir\build.make libs/data_structures/CMakeFiles/data_structures.dir/string__test/string__test.c.i
+.PHONY : string__test/string__test.c.i
+
+string__test/string__test.s: string__test/string__test.c.s
+.PHONY : string__test/string__test.s
+
+# target to generate assembly for a file
+string__test/string__test.c.s:
+	cd /d C:\Users\User\CLionProjects\untitled10\cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs\data_structures\CMakeFiles\data_structures.dir\build.make libs/data_structures/CMakeFiles/data_structures.dir/string__test/string__test.c.s
+.PHONY : string__test/string__test.c.s
+
 vector/vector.obj: vector/vector.c.obj
 .PHONY : vector/vector.obj
 
@@ -267,6 +291,9 @@ help:
 	@echo ... string_/string_.obj
 	@echo ... string_/string_.i
 	@echo ... string_/string_.s
+	@echo ... string__test/string__test.obj
+	@echo ... string__test/string__test.i
+	@echo ... string__test/string__test.s
 	@echo ... vector/vector.obj
 	@echo ... vector/vector.i
 	@echo ... vector/vector.s
