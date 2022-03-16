@@ -16,8 +16,6 @@ typedef struct WordDescriptor {
     char *end ; // позиция первого символа, после последнего символа слова
 } WordDescriptor;
 
-char* reverseString (char *s);
-
 
 typedef struct BagOfWords{
     WordDescriptor words[1000];
@@ -49,5 +47,9 @@ bool isSortedByLexicographicDictionary (char *s);
 void removeExtraSpaces(char *s);
 
 void removeNonLetters(char *s);
+
+char* reverseString (char *s);
+
+int getCountOfWordsPalindromes(char *begin);
 
 #endif //UNTITLED10_STRING__H

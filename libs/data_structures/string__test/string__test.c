@@ -26,7 +26,6 @@ void test_strlen() {
     test_strlen_stringWithSpace();
 }
 
-#include <stdio.h>
 
 void test_find_stringNoElement() {
     char *s = "unnicorn";
@@ -419,4 +418,5 @@ void test_reverseWordsOfString() {
     test_reverseString_twoWord();
     test_reverseString_fewWord();
 }
+
 

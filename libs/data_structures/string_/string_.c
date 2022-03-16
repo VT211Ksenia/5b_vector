@@ -1,4 +1,3 @@
-
 #include "string_.h"
 
 size_t strLen_(const char *begin){
@@ -18,33 +17,33 @@ char* find(char *begin, char *end, int ch){
 char* findNonSpace(char *begin){
     while (*begin != '\0') {
         if (!isspace(*begin))
-            return begin;
-        begin++;
+            begin++;
     }
+    return begin;
 }
 
 char* findSpace(char *begin){
     while (*begin != '\0') {
         if (isspace(*begin))
-            return begin;
         begin++;
     }
+    return begin;
 }
 
 char* findNonSpaceReverse(char *rbegin, const char *rend){
     while(rbegin != rend) {
         if (!isspace(*rbegin))
-            return rbegin;
-        rbegin--;
+            rbegin--;
     }
+    return rbegin;
 }
 
 char* findSpaceReverse(char *rbegin, const char *rend){
     while(rbegin != rend) {
         if (isspace(*rbegin))
-            return rbegin;
-        rbegin--;
+            rbegin--;
     }
+    return rbegin;
 }
 
 int strcmp ( const char *lhs , const char *rhs){
@@ -205,7 +204,7 @@ void inputArrayOfWords(char *s, BagOfWords *words){
     }
 }
 
-char* reverseString (char *s){
+char* reverseString (char *s) {
     copy(s, getEndOfString(s), _stringBuffer);
 
     BagOfWords words;
@@ -221,4 +220,26 @@ char* reverseString (char *s){
     *(result - 1)= '\0';
 
     return result;
+}
+// 8 //
+bool isPalindromeWord(WordDescriptor w) {
+    while (w.begin <= w.end) {
+        if (*w.begin != *w.end)
+            return false;
+
+        w.begin++; w.end++;
+    }
+
+    return true;
+}
+
+int getCountOfWordsPalindromes(char *begin) {
+    WordDescriptor  readWord;
+
+    int count = 0;
+    while (getWord(begin, &readWord))
+        if (isPalindromeWord(readWord))
+            count++;
+
+    return count;
 }
